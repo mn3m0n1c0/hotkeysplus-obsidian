@@ -251,6 +251,15 @@ export default class HotkeysPlus extends Plugin {
         line: selectedText.end.line,
         ch: editor.getLine(selectedText.end.line).length,
       });
+    } else {
+      const line = selectedText.start.line;
+      const lineText = editor.getLine(line);
+		
+      // Place cursor at the end of the line to immediately start writing
+      editor.setCursor({
+        line,
+        ch: lineText.length,
+      });
     }
   }
 
